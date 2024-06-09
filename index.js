@@ -1,13 +1,10 @@
 const express = require('express');
-const User = require('./models/User');
-const sequelize = require('./db');
+require('./db');
 
 const app = express();
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-
-sequelize.sync()
 
 const PORT = 3000;
 app.listen(PORT, () => {
