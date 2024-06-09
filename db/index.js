@@ -2,7 +2,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 
 const sequelize = new Sequelize('sequelizeDB', 'root', '123123', {
     host: 'localhost',
-    logging:false,
+    logging: false,
     dialect: 'mysql'
 });
 
@@ -20,5 +20,6 @@ db.Sequelize = Sequelize
 
 db.contact = require('../models/Contact')(sequelize, DataTypes);
 db.user = require('../models/User')(sequelize, DataTypes, Model);
-db.sequelize.sync({ force: false })
+db.sequelize.sync({ force: true })
+
 module.exports = db;
