@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
         'Contact',
         {
             // Model attributes are defined here
-            userName: {
+            userId: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 unique: true
@@ -14,8 +14,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             phone: {
                 type: DataTypes.INTEGER,
-                allowNull: false,
-                unique: true
+                allowNull: false
             }
         },
         {

@@ -18,8 +18,12 @@ const db = {}
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-db.contact = require('../models/Contact')(sequelize, DataTypes);
 db.user = require('../models/User')(sequelize, DataTypes, Model);
+db.contact = require('../models/Contact')(sequelize, DataTypes);
+
+db.user.hasOne(db.contact,{foreignKey:"userId"})
+db.contact.belongsTo(db.user, { foreignKey: "userId" })
+
 db.sequelize.sync({ force: false })
 
 
